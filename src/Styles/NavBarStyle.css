@@ -74,11 +74,15 @@ nav {
 figure {
     margin: 0;
     padding: 0;
+   
+    
+
 }
 
 figure img {
     width: 100%;
     height: 50%;
+    
 }
 
 figcaption {
@@ -101,4 +105,131 @@ p {
     margin: 0;
     font-size: 0.8rem;
     color: #999;
+}
+.search {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.srch{
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    width: 70%;
+    margin-right: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.srch:focus {
+    outline: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn {
+    background-color: #333333;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #0055CC;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #F7F7F7;
+    color: #333333;
+}
+
+#root {
+    --bg-color: #fff;
+    /* light mode background color */
+    --text-color: #333;
+    /* light mode text color */
+    --btn-bg-color: #008080;
+    /* light mode button background color */
+    --btn-text-color: #fff;
+    /* light mode button text color */
+
+    /* dark mode colors */
+    --bg-color-dark: #333;
+    --text-color-dark: #fff;
+    --btn-bg-color-dark: #008080;
+    --btn-text-color-dark: #fff;
+}
+
+.App {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+button {
+   padding: 10px;
+    border-radius: 0.25rem;
+    background-color: var(--btn-bg-color);
+    color: var(--btn-text-color);
+    border-radius: 5px;
+    margin: 1px;
+    box-shadow: '2px 2px 5px rgba(0, 0, 0.3)';
+}
+
+/* dark mode styles */
+.App.dark {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+
+.App.dark button {
+    background-color: var(--btn-bg-color-dark);
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px;
+    
+}
+
+label {
+    margin: 10px;
+    font-size: 1.2rem;
+}
+
+input,
+select,
+textarea {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+input[type="submit"],
+button[type="submit"] {
+    background-color: #00a6eb;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+    background-color: #0077b3;
+}
+
+textarea {
+    height: 20px;
+    width: 100px;
+    resize: none;
 }
