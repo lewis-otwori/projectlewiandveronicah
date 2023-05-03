@@ -72,17 +72,14 @@ nav {
 }
 
 figure {
-    margin: 0;
-    padding: 0;
-   
-    
-
+    margin: 10;
+    padding: 10;
 }
 
 figure img {
-    width: 100%;
-    height: 50%;
-    
+    width: 105%;
+    height: 75%;
+
 }
 
 figcaption {
@@ -106,13 +103,14 @@ p {
     font-size: 0.8rem;
     color: #999;
 }
+
 .search {
     display: flex;
     justify-content: center;
     margin-top: 1rem;
 }
 
-.srch{
+.srch {
     padding: 12px;
     border-radius: 20px;
     border: none;
@@ -170,7 +168,7 @@ p {
 }
 
 button {
-   padding: 10px;
+    padding: 10px;
     border-radius: 0.25rem;
     background-color: var(--btn-bg-color);
     color: var(--btn-text-color);
@@ -194,7 +192,7 @@ form {
     flex-direction: row;
     align-items: center;
     margin: 20px;
-    
+
 }
 
 label {
