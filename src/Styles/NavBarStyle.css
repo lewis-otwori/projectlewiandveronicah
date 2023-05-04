@@ -74,6 +74,12 @@ nav {
 figure {
     margin: 10;
     padding: 10;
+
+}
+
+figure:hover {
+    background-color: orange;
+    color: black;
 }
 
 figure img {

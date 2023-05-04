@@ -32,7 +32,6 @@ function App() {
             .then(data => setData(data));
     }
 
-
     function AddGames(image) {
         fetch("http://localhost:3000/games",
             {
