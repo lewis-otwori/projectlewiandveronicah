@@ -6,7 +6,7 @@ import Gamelist from './components/GameList';
 import "./Index.css"
 import Game from './images/Game.jpg'
 import Letsplay from './images/Letsplay.jpg'
-import AddGame from './components/AddGame';
+import AddData from './components/AddGame';
 export const ToggleContainer = React.createContext()
 
 function App() {
@@ -26,6 +26,15 @@ function App() {
             .then(data => setData(data))
     }, [])
 
+    function AddGames (image){
+    fetch("http://localhost:3000/games",
+    {method:"POST",headers:{"accept":"application/json","Content-type":'application/json'},
+    body:JSON.stringify(image)})
+    .then(res => res.json())
+    .then(res =>console.log(res))
+  setData(games=>[...games, image])
+  }
+
     return (
         <ToggleContainer.Provider value={{ themeSwitch, setThemeSwitch }}>
 
@@ -38,7 +47,7 @@ function App() {
                     <img src={themeSwitch ? Letsplay : Game} alt='' id={themeSwitch ? { Letsplay } : { Game }} />
                 </div>
                 <Gamelist data={data} />
-                <AddGame/>
+                <AddData AddGames={AddGames}/>
                 <Main /></div>
         </ToggleContainer.Provider>
     )
