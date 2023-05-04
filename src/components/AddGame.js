@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-function AddGame(addGame) {
+function AddGame({AddGames}) {
    const [image, setImage]= useState({})
 
  function handleChange(e){
@@ -8,13 +8,17 @@ function AddGame(addGame) {
     setImage(prevObj=>{
     return {...prevObj,[key]:e.target.value}
     })
+    setTimeout(()=>{
     console.log(image)
+ },0);
  }
 
- const handleSubmit = ((e)=>{
- e.preventDefeaut()
-  addGame(image)
- })
+
+ const handleSubmit = (e)=>{
+ e.preventDefault()
+  AddGames({ ...image, submitbtn: 'Submit' });
+    setImage({});
+ }
 
 
   return (
@@ -31,17 +35,18 @@ function AddGame(addGame) {
           </select><br/>
 
           <label htmlFor="developer">Developer:</label> 
-          <textarea id="developer" value={image.developer} onChange={handleChange}name="developer"></textarea><br/> 
+          <input id="developer" value={image.developer} onChange={handleChange}name="developer"></input><br/> 
 
-          <label htmlFor="release_date">Release_date:</label> 
-          <input type="text" value={image.release_date} onChange={handleChange} id="release_date" name="release_date"/><br/> 
+        
 
           <label htmlFor="image_url">Image URL:</label> 
           <input type="text" value={image.image_url} onChange={handleChange} id="image_url" name="image_url"/><br/>
 
-          <input type="submit"  value={image.submitbtn}  onChange={handleChange} id="submitbtn"/>
+          <input type="submit"  value={image.submitbtn}  onChange={handleChange} id="submitbtn"/><br/>
+          
         </form>
         <form id="comment-form" >
+           <h4>Please add your comment here</h4> 
           <label htmlFor="name-input">Name:</label>
           <input value={image.name} onChange={handleChange} id="name-input" type="text" name="name" required/>
           <label htmlFor="comment-input">Comment:</label>
