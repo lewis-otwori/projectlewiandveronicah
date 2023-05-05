@@ -4,44 +4,44 @@ import { Link } from "react-router-dom";
 
 
 
-function ShowMore(){
+function ShowMore() {
     const [game, setGame] = useState([])
-    
+
     const history = useNavigate()
     //declare variables that will display data
-    const {image_url, title, developer, release_date,rating, genre} = game
-    
+    const { image_url, title, developer, release_date, rating, genre } = game
+
     const { id } = useParams()
-   
+
     console.log(id)
     //fetch data by id
     useEffect(() => {
         fetch(`http://localhost:3000/games/${id}`)
-        .then(r => r.json())
-        .then(data => setGame(data))
+            .then(r => r.json())
+            .then(data => setGame(data))
     }, [id])
 
     //delete data by its id
-    function handleDelete(e){
+    function handleDelete(e) {
         e.preventDefault()
 
-        fetch(`http://localhost:3000/games/${id}`,{
-            method:"DELETE",
-            
+        fetch(`http://localhost:3000/games/${id}`, {
+            method: "DELETE",
+
         })
-        .then(res => res.json())
-        .then(data => setGame(data))
+            .then(res => res.json())
+            .then(data => setGame(data))
         history('/')
     }
 
     //display details of each item
-    return(
+    return (
         <div>
             <div className="image-details">
                 <img src={image_url} alt={title} />
-                <img src={image_url} alt={title} />
+                {/* <img src={image_url} alt={title} /> */}
             </div>
-            
+
             <h2>{title}</h2>
             <h4>{developer}</h4>
             <p>release_date: {release_date}</p>
@@ -49,14 +49,14 @@ function ShowMore(){
             <p>{genre}</p>
             {/* <p>Kshs. {price}</p> */}
             <button className="buy">Buy Now</button>
-           
+
             <div>
-            <Link className = "detail-link" to={`/editgame/${id}`}>Edit Game</Link><br/>
-            <button onClick={handleDelete} className="deletegame">Delete</button>
+                <Link className="detail-link" to={`/editgame/${id}`}>Edit Game</Link><br />
+                <button onClick={handleDelete} className="deletegame">Delete</button>
 
             </div>
-           
-            
+
+
         </div>
     )
 
