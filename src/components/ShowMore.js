@@ -51,8 +51,8 @@ function ShowMore(){
             <button className="buy">Buy Now</button>
            
             <div>
-            <Link className = "detail-link" to={`/editgame/${id}`}>Edit Game</Link>
-            <button onClick={handleDelete} className="deletehotel">Delete</button>
+            <Link className = "detail-link" to={`/editgame/${id}`}>Edit Game</Link><br/>
+            <button onClick={handleDelete} className="deletegame">Delete</button>
 
             </div>
            

@@ -45,7 +45,7 @@ function AddGame({AddGames}) {
           <input type="submit"  value={image.submitbtn}  onChange={handleChange} id="submitbtn"/><br/>
           
         </form>
-        <form id="comment-form" >
+        <form id="comment-form"  onSubmit={handleSubmit}>
            <h4>Please add your comment here</h4> 
           <label htmlFor="name-input">Name:</label>
           <input value={image.name} onChange={handleChange} id="name-input" type="text" name="name" required/>

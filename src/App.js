@@ -47,6 +47,18 @@ function App() {
   }
 
 
+
+    // function AddGames(image) {
+    //     fetch("http://localhost:3000/games",
+    //         {
+    //             method: "POST", headers: { "accept": "application/json", "Content-type": 'application/json' },
+    //             body: JSON.stringify(image)
+    //         })
+    //         .then(res => res.json())
+    //         .then(res => console.log(res))
+    //     setData(games => [...games, image])
+    // }
+
     return (
          <BrowserRouter>
         <ToggleContainer.Provider value={{ themeSwitch, setThemeSwitch }}>
@@ -67,6 +79,7 @@ function App() {
                  <div className='PlayGames'>
                     <img src={themeSwitch ? Letsplay : Game} alt='' id={themeSwitch ? { Letsplay } : { Game }} />
                 </div>
+
                 <Routes>
                 <Route exact path='/' element={<Gamelist data={data}/>}></Route>
                 <Route  path='/add game' element= {<AddGame AddGames={AddGames} />}></Route>
@@ -80,6 +93,12 @@ function App() {
 
                 {/* <AddData /> */}
                 </div>
+
+               
+                {/* <AddGame /> */}
+                {/* <AddData AddGames={AddGames} /> */}
+                {/* <Main /> */}
+                
         </ToggleContainer.Provider>
         </BrowserRouter>
     )
