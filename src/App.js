@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import Main from './components/Main';
+import {BrowserRouter, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar'
-import SearchBar from './components/SearchBar';
+import AddGame from './components/AddGame';
+import ShowMore from './components/ShowMore';
+import EditGame from './components/EditGame';
+import Contact from './components/Contact';
+// import SearchBar from './components/SearchBar';
 import Gamelist from './components/GameList';
 import "./Index.css"
 import Game from './images/Game.jpg'
 import Letsplay from './images/Letsplay.jpg'
-import AddData from './components/AddGame';
+// import AddData from './components/AddGame';
 export const ToggleContainer = React.createContext()
 
 function App() {
@@ -25,13 +29,13 @@ function App() {
             .then(res => res.json())
             .then(data => setData(data))
     }, [])
-<<<<<<< HEAD
+
     function handleSearch() {
         fetch(` http://localhost:3000/games?title_like=${search}`)
             .then(res => res.json())
             .then(data => setData(data));
     }
-=======
+
 
     function AddGames (image){
     fetch("http://localhost:3000/games",
@@ -42,13 +46,14 @@ function App() {
   setData(games=>[...games, image])
   }
 
->>>>>>> origin/main
+
     return (
+         <BrowserRouter>
         <ToggleContainer.Provider value={{ themeSwitch, setThemeSwitch }}>
 
             <div className={`App ${mode}`}>
                 <NavBar />
-                <div>
+                  <div>
                     <input
                         className="srch"
                         type="text"
@@ -59,18 +64,24 @@ function App() {
                     <button onClick={handleSearch}>Search</button>
                 </div>
                 <button onClick={toggleMode} style={{ position: "absolute,", right: 0 }}>{mode === "light" ? "Darkmode" : "Lightmode"}</button>
-
-                <div className='PlayGames'>
+                 <div className='PlayGames'>
                     <img src={themeSwitch ? Letsplay : Game} alt='' id={themeSwitch ? { Letsplay } : { Game }} />
                 </div>
-                <Gamelist data={data} />
-<<<<<<< HEAD
-                <AddGame />
-=======
-                <AddData AddGames={AddGames}/>
->>>>>>> origin/main
-                <Main /></div>
+                <Routes>
+                <Route exact path='/' element={<Gamelist data={data}/>}></Route>
+                <Route  path='/add game' element= {<AddGame AddGames={AddGames} />}></Route>
+                <Route  path='/:id' element={<ShowMore />}> </Route>
+                <Route  path='/editgame/:id' element={<EditGame />}></Route>
+                <Route  path='/contact us' element={<Contact />}></Route>
+                </Routes>
+              
+               
+               
+
+                {/* <AddData /> */}
+                </div>
         </ToggleContainer.Provider>
+        </BrowserRouter>
     )
 
 }

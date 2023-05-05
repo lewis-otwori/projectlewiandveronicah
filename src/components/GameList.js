@@ -1,6 +1,7 @@
 import React from 'react'
 import GameItems from './GameItems'
 
+
 function Gamelist({ data }) {
   return (
     <div className="games-container">

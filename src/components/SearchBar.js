@@ -10,10 +10,7 @@ function SearchBar({ search, setSearch, handleSearch }) {
       <form onSubmit={handleSubmit}>
         <input className="srch" type="text" name="search" placeholder="Search Your Games Here" value={search} onChange={(e) => { setSearch(e.target.value) }} />
         <button className="btn" type="submit">Search</button>
-        {/* <button type="submit">Search</button> */}
       </form>
-      {/* <input  id="searchInput"className="srch"type="text" name="search" placeholder="Search Your Games Here"/>  */}
-
     </div>
   )
 }
