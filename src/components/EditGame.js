@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom";
 
-const EditGame = ({}) => {
+const EditGame = () => {
 
   const [title, setTitle] = useState('');
   const [developer, setDeveloper] = useState('');
