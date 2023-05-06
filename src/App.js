@@ -23,20 +23,20 @@ function App() {
     const [data, setData] = useState([{}])
 
     useEffect(() => {
-        fetch(" http://localhost:3000/games")
+        fetch("https://game-data.onrender.com/games")
             .then(res => res.json())
             .then(data => setData(data))
     }, [])
 
     function handleSearch() {
-        fetch(` http://localhost:3000/games?title_like=${search}`)
+        fetch(`https://game-data.onrender.com/games?title_like=${search}`)
             .then(res => res.json())
             .then(data => setData(data));
     }
 
 
     function AddGames(image) {
-        fetch("http://localhost:3000/games",
+        fetch("https://game-data.onrender.com/games",
             {
                 method: "POST", headers: { "accept": "application/json", "Content-type": 'application/json' },
                 body: JSON.stringify(image)

@@ -16,7 +16,7 @@ function ShowMore() {
     console.log(id)
     //fetch data by id
     useEffect(() => {
-        fetch(`http://localhost:3000/games/${id}`)
+        fetch(`https://game-data.onrender.com/games/${id}`)
             .then(r => r.json())
             .then(data => setGame(data))
     }, [id])
@@ -25,7 +25,7 @@ function ShowMore() {
     function handleDelete(e) {
         e.preventDefault()
 
-        fetch(`http://localhost:3000/games/${id}`, {
+        fetch(`https://game-data.onrender.com/games/${id}`, {
             method: "DELETE",
 
         })

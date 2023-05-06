@@ -12,7 +12,7 @@ const EditGame = ({}) => {
   function handleEdit(e){
         e.preventDefault()
 
-        fetch(`http://localhost:3000/games/${id}`,{
+        fetch(`https://game-data.onrender.com/games/${id}`,{
             method:"PUT",
             headers:{'Content-type' : 'Application/json'},
             body:JSON.stringify({
