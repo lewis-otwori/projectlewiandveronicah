@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 
 function GameItems(props,) {
-    const { id, image_url, title, developer, genre } = props;
+    const { image_url} = props;
     return (
         <figure>
             <img src={image_url} alt="adventure" className='grid' />
